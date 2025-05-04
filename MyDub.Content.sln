@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{42B677F5-CD2D-4B99-B054-94D15216F2FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyDub.Content", "src\MyDub.Content\MyDub.Content.csproj", "{10B7A59B-F4BF-4A69-82E6-8473C3E98301}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{8B1E08D7-4B36-4957-A546-4C7B4BC68E7B}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+		LICENSE = LICENSE
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10B7A59B-F4BF-4A69-82E6-8473C3E98301}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10B7A59B-F4BF-4A69-82E6-8473C3E98301}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10B7A59B-F4BF-4A69-82E6-8473C3E98301}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10B7A59B-F4BF-4A69-82E6-8473C3E98301}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{10B7A59B-F4BF-4A69-82E6-8473C3E98301} = {42B677F5-CD2D-4B99-B054-94D15216F2FD}
+	EndGlobalSection
+EndGlobal
