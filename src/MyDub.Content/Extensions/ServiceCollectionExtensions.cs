@@ -1,4 +1,5 @@
-﻿using Amazon.S3;
+﻿using Amazon;
+using Amazon.S3;
 using Microsoft.Extensions.Options;
 using MyDub.Content.Configure;
 using MyDub.Content.Repositories;
@@ -18,8 +19,11 @@ public static class ServiceCollectionExtensions
             {
                 ServiceURL = s3Settings.ServiceURL,
                 ForcePathStyle = true,
-                UseHttp = !s3Settings.UseSSL
+                UseHttp = !s3Settings.UseSSL,
             };
+
+
+            AWSConfigsS3.UseSignatureVersion4 = true;
             return new AmazonS3Client(s3Settings.AccessKey, s3Settings.SecretKey, s3Config);
         });
 

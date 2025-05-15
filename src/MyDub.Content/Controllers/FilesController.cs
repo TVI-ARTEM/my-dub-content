@@ -21,16 +21,33 @@ public class FilesController(IS3Repository s3Repository) : ControllerBase
     }
 
     [HttpGet("{key}")]
-    public async Task<IResult> Download(string key)
+    public async Task<IActionResult> Download(string key)
     {
         try
         {
             var response = await s3Repository.GetFileAsync(key);
-            return Results.File(response.ResponseStream, response.Headers.ContentType, key + MimeTypeMap.GetExtension(response.Headers.ContentType));
+
+            return File(response.ResponseStream, response.Headers.ContentType,
+                key + MimeTypeMap.GetExtension(response.Headers.ContentType));
         }
         catch (AmazonS3Exception e) when (e.StatusCode == System.Net.HttpStatusCode.NotFound)
         {
-            return Results.NotFound();
+            return NotFound();
+        }
+    }
+
+    [HttpGet("stream/{key}")]
+    public async Task<ActionResult<string>> GetStream(string key)
+    {
+        try
+        {
+            var response = await s3Repository.GetPresignedUrl(key);
+
+            return response;
+        }
+        catch (AmazonS3Exception e) when (e.StatusCode == System.Net.HttpStatusCode.NotFound)
+        {
+            return NotFound();
         }
     }
 }
